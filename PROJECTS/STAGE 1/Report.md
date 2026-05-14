@@ -1,7 +1,8 @@
 # Exploratory Analysis of Drug Sensitivity Patterns in the Genomics of Drug Sensitivity in Cancer (GDSC) Dataset
 
 **Project:** Stage One Analysis — AI for Genomics Internship  
-**Dataset:** GDSC.xlsx  
+**Dataset:** GDSC.xlsx
+**Team** Phenylalanin-methionine
 **Analysis Tools:** Python (pandas, seaborn, matplotlib, scipy)  
 **Date:** May 2026
 
