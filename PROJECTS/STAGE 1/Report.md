@@ -16,7 +16,7 @@ Cancer remains one of the most complex therapeutic challenges in modern medicine
 
 ## 1. Introduction
 
-Drug resistance is the single greatest obstacle to durable cancer treatment. A compound that works brilliantly against one tumour may be completely inert against another that, histologically, looks identical. Understanding why requires connecting pharmacological observations — how sensitive is this cell line to this drug? — to the underlying molecular state of the cell. The GDSC dataset was built precisely for this purpose: it provides a high-throughput pharmacogenomic resource that pairs drug sensitivity measurements with rich genomic annotations across a diverse library of human cancer cell lines.
+Drug resistance is the single greatest obstacle to durable cancer treatment. A compound that works brilliantly against one tumour may be completely inert against another that, histologically, looks identical. Understanding why requires connecting pharmacological observations — how sensitive is this cell line to this drug? To the underlying molecular state of the cell. The GDSC dataset was built precisely for this purpose: it provides a high-throughput pharmacogenomic resource that pairs drug sensitivity measurements with rich genomic annotations across a diverse library of human cancer cell lines.
 
 The primary sensitivity metric in this dataset is the **IC50** — the drug concentration at which 50% of cell proliferation is inhibited. Because IC50 values span several orders of magnitude, a natural logarithm transformation (LN_IC50) is used throughout, which both stabilises variance and makes the distribution more amenable to parametric analyses. Complementary metrics include the **Area Under the Dose-Response Curve (AUC)**, which captures the overall breadth of drug activity, and the **Z-score**, which standardises LN_IC50 relative to the population of cell lines tested with the same drug. Together these three metrics provide a layered view of sensitivity: the IC50 tells us the concentration at which a drug starts to bite; the AUC tells us how effectively it bites across a range of concentrations; and the Z-score contextualises a cell line's response relative to all others.
 
@@ -90,7 +90,7 @@ The parallel cell-line-level heatmap (filtered to the 10 most variable drugs) re
 
 ### 5.1 Analytical Framework
 
-To connect molecular biology to drug pharmacology, the analysis examined how three categories of molecular annotation — copy number alterations (CNA), gene expression status, and DNA methylation — associate with LN_IC50, AUC, and Z-score. For each drug, the cell lines were split by their status for each molecular feature (annotated as binary flags), and an independent t-test was used to assess whether the two groups differ significantly in drug sensitivity. The effect size (mean difference in LN_IC50 between groups) and the resulting p-value were used to construct volcano plots.
+To connect molecular biology to drug pharmacology, the analysis examined how three categories of molecular annotation: copy number alterations (CNA), gene expression status, and DNA methylation associate with LN_IC50, AUC, and Z-score. For each drug, the cell lines were split by their status for each molecular feature (annotated as binary flags), and an independent t-test was used to assess whether the two groups differ significantly in drug sensitivity. The effect size (mean difference in LN_IC50 between groups) and the resulting p-value were used to construct volcano plots.
 
 ### 5.2 Copy Number Alterations
 
@@ -106,7 +106,7 @@ DNA methylation is an epigenetic mechanism that can silence tumour suppressor ge
 
 ### 5.5 Volcano Plot Interpretation
 
-The volcano plots integrate effect size and statistical significance into a single visual. Points in the upper-right quadrant represent drug-feature combinations where the presence of a molecular alteration is associated with significantly higher LN_IC50 — i.e., resistance. Points in the upper-left represent cases where the molecular alteration is associated with significantly lower LN_IC50 — i.e., sensitivity. The density of significant associations varies across the three molecular features, with CNA and gene expression yielding more statistically significant hits than methylation alone. This likely reflects both the greater dynamic range of CNA and expression effects and the relative coarseness of the binary methylation annotation.
+The volcano plots integrate effect size and statistical significance into a single visual. Points in the upper-right quadrant represent drug-feature combinations where the presence of a molecular alteration is associated with significantly higher LN_IC50 i.e., resistance. Points in the upper-left represent cases where the molecular alteration is associated with significantly lower LN_IC50 i.e., sensitivity. The density of significant associations varies across the three molecular features, with CNA and gene expression yielding more statistically significant hits than methylation alone. This likely reflects both the greater dynamic range of CNA and expression effects and the relative coarseness of the binary methylation annotation.
 
 ---
 
@@ -114,13 +114,13 @@ The volcano plots integrate effect size and statistical significance into a sing
 
 This analysis makes several things clear that pure summary statistics cannot convey.
 
-First, drug sensitivity in cancer is not a simple function of cancer type. While broad patterns are visible at the level of TCGA cancer labels, the within-type variation is substantial. This means that clinical decisions guided only by histological diagnosis will miss important opportunities for precision targeting. The GDSC data supports a vision of oncology in which molecular profiling guides drug selection — a vision that is increasingly being realised in clinical practice through companion diagnostics and basket trials.
+First, drug sensitivity in cancer is not a simple function of cancer type. While broad patterns are visible at the level of TCGA cancer labels, the within-type variation is substantial. This means that clinical decisions guided only by histological diagnosis will miss important opportunities for precision targeting. The GDSC data supports a vision of oncology in which molecular profiling guides drug selection: a vision that is increasingly being realised in clinical practice through companion diagnostics and basket trials.
 
 Second, the most pharmacologically interesting drugs are not necessarily the most broadly potent ones. From a precision medicine perspective, a drug with high variance in its response profile is a candidate for biomarker-driven therapy. The challenge is to identify what distinguishes the sensitive from the resistant lines, and this is precisely the kind of question that pharmacogenomic datasets like GDSC are designed to address.
 
 Third, genomic, transcriptomic, and epigenomic features all contribute independently to drug response variation. This means that resistance is rarely attributable to a single molecular mechanism. In practice, the clinical development of targeted therapies requires understanding not just the primary driver of sensitivity, but the secondary mechanisms that allow tumours to escape treatment. The associations uncovered here are a starting point for such mechanistic investigations.
 
-Finally, the dataset's design — multiple drugs per cell line, multiple cell lines per cancer type — enables analyses at multiple levels of biological resolution. The richness of this resource is its greatest asset, but it also means that naive aggregate analyses can obscure important biology. Stratified analyses by cancer type, specific drug class, or molecular subgroup are necessary to translate the high-level patterns described here into actionable biological insights.
+Finally, the dataset's design multiple drugs per cell line, multiple cell lines per cancer type which enables analyses at multiple levels of biological resolution. The richness of this resource is its greatest asset, but it also means that naive aggregate analyses can obscure important biology. Stratified analyses by cancer type, specific drug class, or molecular subgroup are necessary to translate the high-level patterns described here into actionable biological insights.
 
 ---
 
@@ -132,9 +132,9 @@ Several limitations should be acknowledged. The GDSC dataset is generated from i
 
 ## 8. Conclusions
 
-The GDSC dataset provides a uniquely comprehensive window into the pharmacogenomics of cancer. This exploratory analysis has established that the dataset is largely complete and well-structured; that drug sensitivity varies substantially across both cancer types and individual cell lines; that certain drugs show high-variance response profiles that make them strong candidates for biomarker-driven therapy; and that genomic, transcriptomic, and epigenomic features all carry meaningful information about drug sensitivity. These findings lay the groundwork for more targeted analyses — including machine learning models for sensitivity prediction, pathway-level enrichment analyses of sensitive versus resistant cell lines, and integration of drug mechanism-of-action annotations to explain the patterns observed here.
+The GDSC dataset provides a uniquely comprehensive window into the pharmacogenomics of cancer. This exploratory analysis has established that the dataset is largely complete and well-structured; that drug sensitivity varies substantially across both cancer types and individual cell lines; that certain drugs show high-variance response profiles that make them strong candidates for biomarker-driven therapy; and that genomic, transcriptomic, and epigenomic features all carry meaningful information about drug sensitivity. These findings lay the groundwork for more targeted analyses including machine learning models for sensitivity prediction, pathway-level enrichment analyses of sensitive versus resistant cell lines, and integration of drug mechanism-of-action annotations to explain the patterns observed here.
 
-Understanding why some cancer cells die in response to a drug while others survive is, ultimately, a question about the molecular circuitry of the cell. Pharmacogenomic datasets like GDSC bring us closer to an answer — and closer to a future in which cancer treatment is matched precisely to the biology of each individual tumour.
+Understanding why some cancer cells die in response to a drug while others survive is, ultimately, a question about the molecular circuitry of the cell. Pharmacogenomic datasets like GDSC bring us closer to an answer and closer to a future in which cancer treatment is matched precisely to the biology of each individual tumour.
 
 ---
 
