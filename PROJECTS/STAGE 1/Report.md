@@ -26,7 +26,7 @@ The primary sensitivity metric in this dataset is the **IC50** — the drug conc
 
 ### 2.1 Structure and Scale
 
-The GDSC dataset in its raw form comprises **162,103 drug-cell line testing records** spanning **19 variables**. It contains measurements for **246 unique drugs** tested across **737 unique cancer cell lines**, identified by their COSMIC database IDs. The cell lines collectively represent **17 broad tissue systems** and a wide diversity of TCGA-labelled cancer types. The theoretical maximum number of drug-cell line combinations would be 181,302 (246 drugs × 737 cell lines), but the observed 162,103 entries confirm that not every drug was tested against every cell line — a common and biologically reasonable feature of large pharmacogenomic screens, where experimental resources are prioritised around mechanistic hypotheses.
+The GDSC dataset in its raw form comprises **162,103 drug-cell line testing records** spanning **19 variables**. It contains measurements for **246 unique drugs** tested across **737 unique cancer cell lines**, identified by their COSMIC database IDs. The cell lines collectively represent **17 broad tissue systems** and a wide diversity of TCGA-labelled cancer types. The theoretical maximum number of drug-cell line combinations would be 181,302 (246 drugs × 737 cell lines), but the observed 162,103 entries confirm that not every drug was tested against every cell line and a common and biologically reasonable feature of large pharmacogenomic screens, where experimental resources are prioritised around mechanistic hypotheses.
 
 ### 2.2 Missing Data
 
